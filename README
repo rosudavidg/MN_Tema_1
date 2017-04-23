@@ -1,0 +1,71 @@
+************************
+*Nume:    Rosu         *
+*Prenume: Gabriel-David*
+*Grupa:   311          *
+*Seria:   CD           *
+************************
+                             Metode Numerice
+                                 Tema 1
+
+    [~] Exercitiul 1
+
+    Transform numarul primit la intrare din baza b1 in baza 10.
+    Transform numarul din baza 10 in baza b2.
+
+    [~] Exercitiul 2
+
+    Parcurg fiecare diagonala, in functie de paritatea ei si de
+zona in care se afla (fata de diagonala secundara). Sunt 2*n -1 diagonale,
+deci le parcurg cu k de la 0 la 2*n - 2.
+    Parcurg fiecare latura paralela cu diagonala secundara, inclusiv aceasta.
+Laturile sunt in numar de 2 * n - 1, unde n este rangul matricei.
+    Daca numarul laturii este par, o parcurg de jos in sus, iar daca este
+impar o voi parcurge de sus in jos. Marginile sunt dependente de regiunea in
+care ma aflu (deasupra diagonalei secundare sau sub aceasta).
+
+    [~] Exercitiul 3
+
+     -> morse.m
+     Am scris toate nodurile arborelui corespunzator codului Morse, dupa model.
+
+     -> morse_decode.m
+     Initial sunt pozitionat in varful arborelui. Pentru fiecare caracter al
+input-ului, daca este '.' voi merge la stanga (x = x{2}), iar daca este '-'
+voi merge la dreapta (x = x{3}). Daca caracterul nu este nici '.' si nici '-',
+atunci x = '*' si inchid fortat functia. Daca dimensiunea lui x la un pas
+este 0, inseamna ca m-am mutat intr-un nod care nu exista. In acest caz,
+x = '*' si inchid fortat functia. Daca la sfarsit, lungimea lui x este
+diferita de 1, atunci sunt pozitionat pe un nod valid si intorc
+valoarea acestuia (x = x{1}). Daca dimensiunea input-ului este 0 (sirul vid),
+atunci functia intoarce '*'.
+
+    ->morse_encode.m
+    Functia apeleaza o alta functie care cauta recursiv un caracter in arborele
+M si intoarce in x valoarea ceruta.
+    Incep prin a forma doua siruri partiale (posibile rezultate), unul pentru
+stanga, unul pentru dreapta. Pentru fiecare pas, (pentru fiecare sir) se
+vor forma in continuare cate doua siruri. Daca la un pas caracterul este gasit,
+se intoarce sirul cerut. Daca am ajuns intr-un nod invalid, cautarea se
+va opri pe acea ramura.
+
+    ->multiple_encode.m
+    Daca sirul este vid, atunci se va intoarce '*'. Daca sirul nu este vid,
+atunci pentru fiecare litera formez sirul corespunzator acesteia cu ajutorul
+functiei morse_encode si il adaug in sirul final.
+
+    ->multiple_decode.m
+    Daca sirul este vid, intorc '*'. Altfel, pentru fiecare secventa de sir,
+delimitata de spatii, folosesc functia morse_decode pentru a forma litera,
+pe care o adaug in sirul final.
+
+    [~] Exercitiul 4
+
+    Jucatorul alege initial cu ce va joca aceasta runda: 'X' sau 'O' (litera O,
+nu cifra zero). La fiecare pas pana la terminarea rundei, jucatorul va alege
+linia si coloana unde va pune un nou caracter. (ex: 3 [enter] 2 [enter] -
+linia 3, coloana 2). Computer-ul va pune automat intr-un loc liber random.
+La fiecare pas se va verifica cineva a castigat, iar daca tabla este plina,
+va fi remiza. La sfarsitul unei runde, jucatorul este intrebat daca vrea sa
+continuie jocul sau sa iasa prin apasarea tastei 'q'.
+
+                                 Aprilie 2017
